@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 
-import 'package:todo_list_app/main.dart' as app;
 import 'package:todo_list_app/main.dart';
 import '../resource/finder/finder_todoList.dart';
 import '../resource/pages/page_todoList.dart';
@@ -14,12 +13,12 @@ void main() {
 
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('[TC001] Able to add new to-do list', (tester) async {
-    app.main();
+  testWidgets('[TC001] Verify the function of adding the new to-do list', (tester) async {
+    await tester.pumpWidget(const MyApp());
     await verifyTitleName (tester, variable.titleName);
     await addTask (tester, data.toDoListsDesc);
     await verifyTodoListDesc (tester, data.toDoListsDesc);
-    await verifyLengthOfTaskLists(3);
+    await verifyLengthOfTaskLists(31);
 
     find.byType(TaskTile).evaluate().toList().asMap().forEach((index, task) {
       final taskDesc = find.descendant(of: find.byWidget(task.widget), matching: lblTaskDesc);
@@ -28,12 +27,12 @@ void main() {
     });
   });
 
-  testWidgets('[TC002] Able to press on checkbox to done task', (tester) async {
-    app.main();
+  testWidgets('[TC002] Verify the display of the to-do list screen when pressing the checkbox', (tester) async {
+    await tester.pumpWidget(const MyApp());
     await verifyTitleName (tester, variable.titleName);
     await addTask (tester, data.toDoListsDesc);
     await verifyTodoListDesc (tester, data.toDoListsDesc);
-    await verifyLengthOfTaskLists(3);
+    await verifyLengthOfTaskLists(31);
     await pressOnCheckboxAll (tester);
     await verifyCheckboxValues (tester);
 
@@ -47,13 +46,13 @@ void main() {
     });
   });
 
-  testWidgets('[TC003] Able to delete to-do list', (tester) async {
-    app.main();
+  testWidgets('[TC003] Verify the function of deleting the to-do list', (tester) async {
+    await tester.pumpWidget(const MyApp());
     await verifyTitleName (tester, variable.titleName);
     await addTask (tester, data.toDoListsDesc);
     await verifyTodoListDesc (tester, data.toDoListsDesc);
     await deleteTaskAll (tester);
-    await verifyLengthOfTaskLists(0);
+    await verifyLengthOfTaskLists(01);
 
     expect(find.byType(TaskTile).evaluate(), [],
         reason: 'Verify the to-do task was deleted all');

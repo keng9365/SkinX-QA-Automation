@@ -6,7 +6,7 @@ import '../utils/extension.dart';
 
 
 Future<void> press(WidgetTester tester, Finder point) async {
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(milliseconds: 200));
     await tester.tap(point);
     await tester.pumpAndSettle();
 }
@@ -15,7 +15,7 @@ Future<void> addTask(WidgetTester tester, data) async {
   await tester.pumpUntilFound(tester, txtEnterTaskDesc);
   for (var i=0; i < data.length; i++){
     await tester.enterText(txtEnterTaskDesc, data[i]);
-    await tester.pumpAndSettle();
+    await tester.pump();
     await press(tester, btnAddTaskDesc.first);
   }
 }
