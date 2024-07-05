@@ -18,7 +18,7 @@ void main() {
     await verifyTitleName (tester, variable.titleName);
     await addTask (tester, data.toDoListsDesc);
     await verifyTodoListDesc (tester, data.toDoListsDesc);
-    await verifyLengthOfTaskLists(31);
+    await verifyLengthOfTaskLists(3);
 
     find.byType(TaskTile).evaluate().toList().asMap().forEach((index, task) {
       final taskDesc = find.descendant(of: find.byWidget(task.widget), matching: lblTaskDesc);
@@ -32,7 +32,7 @@ void main() {
     await verifyTitleName (tester, variable.titleName);
     await addTask (tester, data.toDoListsDesc);
     await verifyTodoListDesc (tester, data.toDoListsDesc);
-    await verifyLengthOfTaskLists(31);
+    await verifyLengthOfTaskLists(3);
     await pressOnCheckboxAll (tester);
     await verifyCheckboxValues (tester);
 
@@ -52,7 +52,7 @@ void main() {
     await addTask (tester, data.toDoListsDesc);
     await verifyTodoListDesc (tester, data.toDoListsDesc);
     await deleteTaskAll (tester);
-    await verifyLengthOfTaskLists(01);
+    await verifyLengthOfTaskLists(0);
 
     expect(find.byType(TaskTile).evaluate(), [],
         reason: 'Verify the to-do task was deleted all');
