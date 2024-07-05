@@ -1,9 +1,18 @@
 # How to run test
 1. Download this project to your computer
-2. Go to the project folder
-3. Make sure the device is starting already
-- Run command (Android) ```flutter test -r expanded -d 'device-name' integration_test/feature/test_todoList.dart```
-- Run command (iOS) ```flutter test -r expanded -d 'device-id' integration_test/feature/test_todoList.dart```
+   
+   > <img width="50%" src="https://github.com/keng9365/SkinX-QA-Automation/assets/51193776/8a714878-2c72-4941-911d-d5308ea221e8"/>
+
+4. Extract zip file & New terminal at folder
+   
+   > <img width="50%" src="https://github.com/keng9365/SkinX-QA-Automation/assets/51193776/23e8784a-c2b4-4079-88b6-2abdb46a8d7f"/>
+
+6. Make sure the device is starting already
+7. Run command
+- Android :  ```flutter test -r expanded -d 'device-name' integration_test/feature/test_todoList.dart```
+- iOS :  ```flutter test -r expanded -d 'device-id' integration_test/feature/test_todoList.dart```
+  
+  > <img width="50%" src="https://github.com/keng9365/SkinX-QA-Automation/assets/51193776/4e0b8991-d548-4bb5-aa54-600684614679"/>
 
 # Test Scenario
 
